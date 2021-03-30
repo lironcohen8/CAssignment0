@@ -11,19 +11,26 @@ int charToDec(char c) {
         return d - 87;
 }
 
+char decToChar(int d) {
+    if (d >= 0 && d <= 9)
+        return (char)(d + 48);
+    else
+        return (char)(d + 87);
+}
+
 int main(void) {
-    int a, b, decNum, decDig;
+    int a, b, decNum, decDig, bChar;
     char c;
 
     printf("Please enter the numbers base:\n");
     scanf("%d", &a);
-    if (a<2 || a>16)
+    if (a < 2 || a > 16)
         printf("Invalid input base\n");
     assert(a >= 2 && a <= 16);
 
     printf("Please enter the desired base:\n");
     scanf("%d", &b);
-    if (b<2 || b>16)
+    if (b < 2 || b > 16)
         printf("Invalid desired base\n");
     assert(b >= 2 && b <= 16);
     
@@ -38,15 +45,12 @@ int main(void) {
         decNum = decNum * a + decDig;
     }
 
-    printf("decNum is %d", decNum);
-    /*
-    while (decNum >= 0) {
-        printf("decNum is %d", decNum);
-        bDig = decNum / b;
-        printf("bDig is %d", bDig);
-        decNum = decNum % b;
-    }*/
-
+    printf("The result is: ");
+    while (decNum > 0) {
+        bChar = decToChar(decNum % b);
+        decNum = decNum / b;
+        printf("%c", bChar);
+    }
     
     return 0;
 }
