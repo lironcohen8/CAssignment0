@@ -56,6 +56,7 @@ int main(void) {
 
     printf("The result is: ");
     printNum(decNum, b);
+    printf("%c", '\n');
 
     return 0;
 }
