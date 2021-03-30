@@ -17,8 +17,18 @@ char decToChar(int d) {
         return (char)(d + 87);
 }
 
+void printNum(int decNum, int b) {
+    char bChar;
+    if (decNum > 0) {
+        bChar = decToChar(decNum % b);
+        decNum = decNum / b;
+        printNum(decNum, b);
+        printf("%c", bChar);
+    }
+}
+
 int main(void) {
-    int a, b, decNum, decDig, bChar;
+    int a, b, decNum, decDig;
     char c;
 
     printf("Please enter the numbers base:\n");
@@ -35,7 +45,7 @@ int main(void) {
     
     getchar();
     printf("Please enter a number in base %d:\n" , a);
-    while ((c = getchar()) != '\n') {
+    while ((c = getchar()) != '\n' && c != EOF) {
         decDig = charToDec(c);
         if (decDig < 0 || decDig >= a) 
             printf("Invalid number!\n");
@@ -45,11 +55,7 @@ int main(void) {
     }
 
     printf("The result is: ");
-    while (decNum > 0) {
-        bChar = decToChar(decNum % b);
-        decNum = decNum / b;
-        printf("%c", bChar);
-    }
+    printNum(decNum, b);
 
     return 0;
 }
