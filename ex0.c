@@ -28,7 +28,7 @@ void printNum(int decNum, int b) {
 }
 
 int main(void) {
-    int a, b, decNum, decDig;
+    int a, b, decDig, decNum;
     char c;
 
     printf("Please enter the numbers base:\n");
