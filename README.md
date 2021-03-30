@@ -1,3 +1,2 @@
 # ex0
-Assignment 0 for C class
-Base Convertor
+Assignment 0 for C class - Base Convertor
