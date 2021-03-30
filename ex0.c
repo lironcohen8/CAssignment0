@@ -12,7 +12,7 @@ int charToDec(char c) {
 }
 
 int main(void) {
-    int a, b, decDig, decNum;
+    int a, b, decNum, decDig, bDig;
     char c;
 
     printf("Please enter the numbers base:\n");
@@ -35,9 +35,16 @@ int main(void) {
             printf("Invalid number!\n");
         assert(decDig >= 0 && decDig < a);
 
-        decNum = decNum * a + decDig;
+        decNum = decNum * 10 + decDig;
     }
 
-    printf("The result is: %d", decNum);
+    printf("The result is: ");
+    while (decNum >= 0) {
+        bDig = decNum / b;
+        decNum = decNum % b;
+        printf("%d", bDig);
+    }
+
+    
     return 0;
 }
