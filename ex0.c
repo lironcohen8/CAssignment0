@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <assert.h>
-#include <stdlib.h>
 
 int charToDec(char c) {
     int d;
@@ -51,6 +50,6 @@ int main(void) {
         decNum = decNum / b;
         printf("%c", bChar);
     }
-    
+
     return 0;
 }
